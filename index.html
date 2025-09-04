@@ -11,7 +11,7 @@
             --primary: #6a5acd;
             --primary-light: #8378de;
             --primary-dark: #5649b0;
-            --secondary: #ff6b6b;
+            --secondary: #4ecdc4;
             --text: #333;
             --text-light: #666;
             --background: #f9f9ff;
@@ -449,31 +449,6 @@
         .section:nth-child(3) { animation-delay: 0.2s; }
         .section:nth-child(4) { animation-delay: 0.3s; }
         .section:nth-child(5) { animation-delay: 0.4s; }
-        
-        /* ================== BOTÕES ================== */
-        .download-btn {
-            display: inline-block;
-            padding: 12px 25px;
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            margin-top: 20px;
-            transition: var(--transition);
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(106, 90, 205, 0.3);
-        }
-        
-        .download-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(106, 90, 205, 0.4);
-        }
-        
-        .download-btn i {
-            margin-right: 8px;
-        }
     </style>
 </head>
 <body>
@@ -520,7 +495,7 @@
                 </div>
                 <h2>Sobre Mim</h2>
             </div>
-            <p>Sou um jovem de 15 anos em busca da minha primeira oportunidade no mercado de trabalho. Sou uma pessoa responsável, organizada e com grande facilidade de aprendizado. Estou animado para contribuir com uma equipe e desenvolver minhas habilidades profissionais.</p>
+            <p>Sou um jovem de 15 anos em busca da minha primeira oportunidade no mercado de trabalho. Sou uma pessoa responsável, organizada e com grande facilidade de aprendizado. Estou animado para contribuir com uma equipe e desenvolver minhas habilidades profissionais, especialmente na área de programação.</p>
         </div>
 
         <hr class="divider">
@@ -666,24 +641,22 @@
             
             <div class="interests">
                 <div class="interest-item">
-                    <i class="fas fa-laptop"></i>
-                    <span>Tecnologia</span>
-                </div
-                <div class="interest-item">
-                    <i class="fas fa-book-reader"></i>
+                    <i class="fas fa-laptop-code"></i>
                     <span>Programação</span>
+                </div>
+                <div class="interest-item">
+                    <i class="fas fa-gamepad"></i>
+                    <span>Jogos</span>
+                </div>
+                <div class="interest-item">
+                    <i class="fas fa-headphones"></i>
+                    <span>Música</span>
                 </div>
                 <div class="interest-item">
                     <i class="fas fa-users"></i>
                     <span>Trabalho em Equipe</span>
                 </div>
             </div>
-        </div>
-
-        <div style="text-align: center; margin-top: 40px;">
-            <button class="download-btn" onclick="window.print()">
-                <i class="fas fa-download"></i> Baixar Currículo
-            </button>
         </div>
     </div>
 
