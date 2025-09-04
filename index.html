@@ -1,45 +1,268 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <style>
-    body {
-      background-color: purple;
-      font-family: Arial, sans-serif;
-      text-align: center;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Currículo - Vítor Hugo dos Reis</title>
+<style>
+/* ================== RESET ================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f2f2f2;
+    color: #333;
+    line-height: 1.6;
+}
+.container {
+    max-width: 900px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+}
+.container::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background-color: #6a5acd33;
+    border-radius: 50%;
+}
+.container::after {
+    content: '';
+    position: absolute;
+    bottom: -60px;
+    left: -60px;
+    width: 250px;
+    height: 250px;
+    background-color: #6a5acd22;
+    border-radius: 50%;
+}
+/* ================== HEADER ================== */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+}
+.header-info {
+    max-width: 65%;
+}
+.header h1 {
+    font-size: 3em;
+    color: #222;
+    font-weight: 700;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+.header p {
+    font-size: 1.1em;
+    color: #555;
+}
+.header p span {
+    margin: 0 10px;
+    color: #444;
+}
+.photo {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #6a5acd;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+.photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* ================== SECTION TITLES ================== */
+.section h2 {
+    font-size: 1.8em;
+    color: #222;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+.section h2::after {
+    content: '';
+    width: 80px;
+    height: 4px;
+    background-color: #6a5acd;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    border-radius: 2px;
+}
+.section {
+    margin-bottom: 50px;
+    padding-left: 15px;
+    position: relative;
+}
+.section::before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 0;
+    width: 5px;
+    height: 100%;
+    background-color: #6a5acd;
+    border-radius: 5px;
+}
+/* ================== EDUCATION ================== */
+.education p {
+    font-size: 1.1em;
+    margin-bottom: 12px;
+    color: #444;
+}
+.education .degree {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #6a5acd;
+}
+/* ================== EXPERIENCE ================== */
+.experience .job {
+    margin-bottom: 25px;
+}
+.job-title {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #6a5acd;
+    margin-bottom: 5px;
+}
+.job-desc {
+    font-size: 1em;
+    color: #555;
+    margin-left: 15px;
+    margin-bottom: 5px;
+}
+/* ================== SKILLS ================== */
+.skills-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+.skills-list li {
+    background-color: #eae6ff;
+    padding: 12px 15px;
+    border-radius: 12px;
+    font-size: 1em;
+    font-weight: 500;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.skills-list li:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+/* ================== DIVIDERS ================== */
+hr {
+    border: none;
+    height: 3px;
+    background-color: #6a5acd;
+    margin: 30px 0 40px 0;
+    border-radius: 3px;
+}
+/* ================== TIMELINE DECOR ================== */
+.container::after,
+.container::before {
+    z-index: 0;
+}
+.section {
+    z-index: 1;
+}
+/* ================== BARS DE HABILIDADE ================== */
+.skill-bar {
+    margin-top: 10px;
+    background-color: #ddd;
+    border-radius: 12px;
+    overflow: hidden;
+    height: 15px;
+    width: 100%;
+}
+.skill-bar span {
+    display: block;
+    height: 100%;
+    background-color: #6a5acd;
+    border-radius: 12px;
+}
+/* ================== RESPONSIVE ================== */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: center;
     }
-    h1 {
-      color: pink;
+    .header-info {
+        max-width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
     }
-    p {
-      font-size: 15px;
-      color: darkslategray;
+    .skills-list {
+        grid-template-columns: 1fr;
     }
-    button {
-      background-collor: darkblue;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      cursor: pointer;
-      font-size: 30px;
-    }
-    button:hover {
-      background-color: yellow;
-    }
-  </style>
-  <meta charset="UTF-8"
-  <meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-  <title>feijãoh</title>
+}
+/* ================== EXTRA DECORATIVO ================== */
+.section:nth-child(even)::before {
+    background-color: #9370db;
+}
+.section p::first-letter {
+    font-weight: bold;
+    color: #6a5acd;
+    font-size: 1.2em;
+}
+</style>
 </head>
 <body>
-  <h1 id="mensagem">O Mathias é feijão e o Davi é o arroz.</h1>
-  <p>Arroz por cima do feijão é bom de mais. Delicinha.</p>
-  <button onclick="mudarMensagem()">Clique aqui</button>
-    <script>
-      function mudarMensagem() {
+<div class="container">
+    <div class="header">
+        <div class="header-info">
+            <h1>Vítor Hugo dos Reis</h1>
+            <p>📍 Canela/RS <span>☎️ (54) 98131-2500</span> <span>✉️ vitorhugodosreis627@gmail.com</span> | 15 anos</p>
+        </div>
+        <div class="photo">
+            <img src="https://via.placeholder.com/150" alt="Foto de Vítor">
+        </div>
+    </div>
 
-document.getElementById("mensagem").innerHTML = "Jesus amado";
-      }
-    </script>
+    <hr>
+
+    <div class="section education">
+        <h2>Formação Acadêmica</h2>
+        <p class="degree">Ensino Médio – 1º Ano (em andamento)</p>
+    </div>
+
+    <hr>
+
+    <div class="section experience">
+        <h2>Experiência Profissional</h2>
+        <div class="job">
+            <p class="job-title">Padaria (trabalho extra)</p>
+            <p class="job-desc">Apoio em organização e atendimento básico</p>
+            <p class="job-desc">Vivência com rotina de comércio</p>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="section skills">
+        <h2>Habilidades</h2>
+        <ul class="skills-list">
+            <li>Responsável e organizado</li>
+            <li>Facilidade para aprender</li>
+            <li>Bom relacionamento em equipe</li>
+            <li>Atenção aos detalhes</li>
+        </ul>
+    </div>
+</div>
 </body>
 </html>
